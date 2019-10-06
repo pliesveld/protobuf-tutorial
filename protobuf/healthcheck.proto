@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package protobuf.healthcheck;
+
+
+//message HeatlhCheck (HealthCheckRequest) returns (HealthCheckResponse);
+
+message HealthCheckRequest {
+	fixed32 timestamp = 1;
+}
+
+message HealthCheckResponse {
+	fixed32 timestamp_request = 1;
+	fixed32 timestamp_response = 2;
+}
+
