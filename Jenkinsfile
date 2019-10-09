@@ -19,12 +19,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-               echo "TODO: publish"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo "TODO: deploy"
+                  ansiblePlaybook become: true, disableHostKeyChecking: true, playbook: 'playbook_publish.yml'
             }
         }
     }

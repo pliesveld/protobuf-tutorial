@@ -1,0 +1,12 @@
+- hosts: pi3
+  tasks:
+   - name: Upload library artifacts to web server
+     copy: mode=755 owner=pi src=dist/ dest=/var/www/html/myproto/
+
+- hosts: all
+  tasks:
+    - name: Deploy library to all hosts
+      pip:
+        name: myproto
+        extra_args: "--user --trusted-host pi3 --extra-index-url http://pi3:8080/"
+        state: forcereinstall
